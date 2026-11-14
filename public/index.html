@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="OrçaVupt: encontre profissionais locais e receba orçamentos rapidamente.">
+  <title>OrçaVupt | Orçamentos locais</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/script.js" defer></script>
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="container nav-content">
+      <a class="brand" href="/" aria-label="OrçaVupt - início">
+        <span class="brand-mark">V</span>
+        <span>OrçaVupt</span>
+      </a>
+
+      <nav class="tabs" aria-label="Tipo de acesso">
+        <button class="tab-button active" id="tab-cliente" type="button" aria-controls="area-cliente" aria-selected="true">Sou Cliente</button>
+        <button class="tab-button" id="tab-profissional" type="button" aria-controls="area-profissional" aria-selected="false">Sou Profissional</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-section" id="area-cliente">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Seu serviço, sem complicação</span>
+          <h1>Resolva seu problema em 3 cliques.</h1>
+          <p class="subtitle">Receba orçamentos de profissionais locais e escolha a melhor opção para você.</p>
+          <p class="hero-note">⚡ <strong>Rápido e local:</strong> conectamos você a quem atende na sua região.</p>
+        </div>
+
+        <div class="panel">
+          <h2>Conte o que você precisa</h2>
+          <p class="subtitle panel-intro">Preencha os dados abaixo para publicar seu pedido.</p>
+
+          <form id="form-pedido-cliente">
+            <div class="field-grid">
+              <div class="field">
+                <label for="categoria-cliente">Categoria do serviço</label>
+                <select id="categoria-cliente" name="categoria" required>
+                  <option value="">Selecione uma categoria</option>
+                  <option>Eletricista</option>
+                  <option>Pintor</option>
+                  <option>Pedreiro</option>
+                  <option>Técnico de Ar-Condicionado</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="local-cliente">Bairro / Cidade</label>
+                <input id="local-cliente" name="local" type="text" placeholder="Ex.: Centro, Belo Horizonte" required>
+              </div>
+
+              <div class="field full">
+                <label for="descricao-cliente">Descreva brevemente o problema</label>
+                <textarea id="descricao-cliente" name="descricao" placeholder="Conte o que precisa ser feito..." required></textarea>
+              </div>
+
+              <div class="field full">
+                <label for="foto-cliente">Foto do problema (opcional)</label>
+                <input
+                  id="foto-cliente"
+                  name="foto"
+                  type="file"
+                  accept=".jpg,.jpeg,.jfif,.png,.webp,.gif,image/jpeg,image/png,image/webp,image/gif"
+                >
+                <small>JPG, PNG, WEBP ou GIF. Tamanho máximo: 5 MB.</small>
+                <div class="photo-upload-preview hidden" id="foto-preview">
+                  <img id="foto-preview-image" alt="Prévia da foto selecionada">
+                  <div class="photo-upload-preview-info">
+                    <span id="foto-preview-name"></span>
+                    <button
+                      class="photo-remove-button"
+                      id="remover-foto"
+                      type="button"
+                    >Remover foto</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button class="primary-button wide" type="submit">Pedir Orçamento Agora <span>→</span></button>
+            <p class="form-message" id="mensagem-cliente" role="status"></p>
+          </form>
+        </div>
+
+        <div class="section-title-row">
+          <div>
+            <span class="eyebrow">Acompanhe por aqui</span>
+            <h2>Meus Pedidos e Orçamentos Recebidos</h2>
+            <p>Veja os pedidos cadastrados e as propostas enviadas pelos profissionais.</p>
+          </div>
+          <span class="status" id="contador-pedidos">Carregando pedidos...</span>
+        </div>
+
+
+        <div class="client-orders" id="lista-pedidos-cliente">
+          <p class="empty-state">Carregando pedidos...</p>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="page-section hidden" id="area-profissional">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Oportunidades na sua região</span>
+          <h1>Encontre novos serviços.</h1>
+          <p class="subtitle">Confira os pedidos disponíveis e envie seu orçamento diretamente pela plataforma.</p>
+        </div>
+
+        <div class="filter-bar">
+          <label for="filtro-categoria">Filtrar pedidos por:</label>
+          <select id="filtro-categoria">
+            <option value="todos">Todas as categorias</option>
+            <option>Eletricista</option>
+            <option>Pintor</option>
+            <option>Pedreiro</option>
+            <option>Técnico de Ar-Condicionado</option>
+          </select>
+        </div>
+
+
+        <div class="orders-grid" id="lista-pedidos-profissional">
+          <p class="empty-state">Carregando pedidos...</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 OrçaVupt · Conectando clientes e profissionais da sua cidade.</div>
+  </footer>
+</body>
+
+</html>
